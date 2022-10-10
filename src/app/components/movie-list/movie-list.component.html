@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form-inline" (submit)="submit()" [formGroup]="searchForm" >
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      formControlName="name"
+    />
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      Search
+    </button>
+  </form>
+
+  <div class="movieCardContainer col-sm-12">
+    <div class="card" style="width: 18rem" *ngFor="let movie of listaDeFilmes">
+      <img
+        class="card-img-top"
+        src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.original_title }}</h5>
+        <p class="card-text">
+          {{ movie.overview }}
+        </p>
+        <a routerLink="/Movies/{{ movie.id }}" class="btn btn-primary"
+          >Go somewhere</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
